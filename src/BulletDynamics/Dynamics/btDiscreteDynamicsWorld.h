@@ -229,7 +229,18 @@ public:
 	{
 		return m_latencyMotionStateInterpolation;
 	}
-    
+
+	// Contact callback support
+	void setContactAddedCallback(unsigned long callbackFunction) {
+		gContactAddedCallback = (ContactAddedCallback)callbackFunction;
+	}
+	void setContactProcessedCallback(unsigned long callbackFunction) {
+		gContactProcessedCallback = (ContactProcessedCallback)callbackFunction;
+	}
+	void setContactDestroyedCallback(unsigned long callbackFunction) {
+		gContactDestroyedCallback = (ContactDestroyedCallback)callbackFunction;
+	}
+
     btAlignedObjectArray<btRigidBody*>& getNonStaticRigidBodies()
     {
         return m_nonStaticRigidBodies;
